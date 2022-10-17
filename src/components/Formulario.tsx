@@ -42,13 +42,17 @@ const Formulario: React.FC<{ id?: number }> = ({ id }) => {
   }
 
   const handleSalvar = () => {
-    const novoRecado: RecadoRequest = {
-      description,
-      detail,
-    }
+    if (description === "" || detail === "") {
+      alert("Preencha todos os campos")
+    } else {
+      const novoRecado: RecadoRequest = {
+        description,
+        detail,
+      }
 
-    dispatch(criarRecado(novoRecado))
-    handleCancelFormulario();
+      dispatch(criarRecado(novoRecado))
+      handleCancelFormulario();
+    }
   }
 
   const handleAtualizar = () => {
