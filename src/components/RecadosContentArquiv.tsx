@@ -28,7 +28,7 @@ const RecadosContentArquiv: React.FC = () => {
                 )
               })
             ) : (
-              <Typography > No archived messages</Typography>
+              <Typography sx={{ color: "white", fontSize: "25px", textAlign: "center" }} > No archived messages</Typography>
             )}
           </>
 

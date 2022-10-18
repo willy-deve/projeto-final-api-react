@@ -65,15 +65,16 @@ const RecadosAccordion: React.FC<Recado> = ({ id, description, detail, arquivado
 
   return (
 
-    <Accordion sx={{ backgroundColor: '#fff' }}>
+    <Accordion  >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
         id="panel1a-header"
+        sx={{ background: "#437791" }}
       >
-        <Typography> #{id} {description}</Typography>
+        <Typography sx={{ color: 'white' }}> #{id} {description}</Typography>
       </AccordionSummary>
-      <Accordiondetails sx={{ backgroundColor: '#dddddd' }}>
+      <Accordiondetails sx={{ backgroundColor: '#fff' }}>
 
         <Typography sx={{ color: 'black' }}>{detail} </Typography>
 

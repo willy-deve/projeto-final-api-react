@@ -3,7 +3,7 @@ import { Recado, RecadoRequest } from "../store/recados/types";
 
 const api = axios.create({
   baseURL: "https://projeto-willy-back-end.herokuapp.com/sistema/recados",
-  // baseURL: "https://hidden-hamlet-78084.herokuapp.com/sistemaRecados/recado"
+
 
 });
 

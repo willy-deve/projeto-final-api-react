@@ -5,7 +5,7 @@ const StylesGlobal: React.FC = () => {
   return (
     <GlobalStyles
       styles={{
-        body: { margin: '0px 0px 0px 0px', backgroundColor: '#616f71' },
+        body: { margin: '0px 0px 0px 0px', backgroundColor: '#616f71c5' },
       }}
     />
   );
