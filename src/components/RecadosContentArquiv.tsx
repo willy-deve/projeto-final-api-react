@@ -28,7 +28,7 @@ const RecadosContentArquiv: React.FC = () => {
                 )
               })
             ) : (
-              <Typography > Sem recados arquivados</Typography>
+              <Typography > No archived messages</Typography>
             )}
           </>
 

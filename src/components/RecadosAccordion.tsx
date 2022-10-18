@@ -6,7 +6,6 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Accordiondetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Button } from '@mui/material'
 import { Grid } from '@mui/material'
 import { Recado, RecadoRequest } from '../store/recados/types';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
@@ -14,7 +13,11 @@ import { checkBotoes } from '../store/botoes/BotoesSlice';
 import { criarRecado, excluirRecado, selectAll } from '../store/recados/RecadosSlice';
 import { create } from '../store/recados/recadoSlice';
 import { addOneArquivo, removeOneArquiv, selectAllArquiv } from '../store/arquivados/ArquivadosSlice';
-import { recado } from '../store/recados';
+import ButtonStyled from './ButtonStyled/ButtonStyled';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from '@mui/icons-material/Edit';
+import DriveFileMoveIcon from '@mui/icons-material/DriveFileMove';
+import RestorePageIcon from '@mui/icons-material/RestorePage';
 
 
 
@@ -77,19 +80,19 @@ const RecadosAccordion: React.FC<Recado> = ({ id, description, detail, arquivado
         <Grid container sx={{ marginTop: "15px" }}>
 
           <Grid item xs={4} md={4} xl={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: "5px" }}>
-            <Button variant='contained' onClick={handleEditar} >TO EDIT</Button>
+            <ButtonStyled texto='TO EDIT' icon={<EditIcon />} onClick={handleEditar} />
           </Grid>
 
           <Grid item xs={4} md={4} xl={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: "5px" }}>
-            <Button variant="contained" onClick={handleApagar} >DELETE</Button>
+            <ButtonStyled texto='DELETE' icon={<DeleteForeverIcon />} onClick={handleApagar} />
           </Grid>
 
           <Grid item xs={4} md={4} xl={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: "5px" }}>
             {arquivado ? (
-              <Button variant='contained' onClick={handleDesarquivar}> Desarquivar </Button>
+              <ButtonStyled texto='UNARCHIVE' icon={<RestorePageIcon />} onClick={handleDesarquivar} />
             ) :
               (
-                <Button variant='contained' onClick={handleArquivar}>Arquivar</Button>
+                <ButtonStyled texto='TO FILE' icon={<DriveFileMoveIcon />} onClick={handleArquivar} />
               )
 
             }

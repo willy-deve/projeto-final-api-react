@@ -1,5 +1,5 @@
 
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import React, { useEffect } from 'react';
 import Formulario from '../../components/Formulario';
 import Header from '../../components/Header';
@@ -9,6 +9,8 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { buscarRecados } from '../../store/recados/RecadosSlice';
 import { checkMostrar, selectMostrar } from '../../store/Mostrar/MostrarSlice';
 import RecadosContentArquiv from '../../components/RecadosContentArquiv';
+import ButtonStyled from '../../components/ButtonStyled/ButtonStyled';
+import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 
 
 
@@ -39,14 +41,14 @@ const Home: React.FC = () => {
         <Header />
         <Formulario />
         {estadoMostrar === false ? (
-          <Button onClick={handleArquivados}>
-            Arquivados
-          </Button>
+          <ButtonStyled texto='FILED' icon={<CreateNewFolderIcon />} onClick={handleArquivados} />
+
+
         ) : (
           <>
-            <Button onClick={handleNaoArquivados}>
-              Desarquviados
-            </Button><RecadosContentArquiv />
+            <ButtonStyled texto='UNARCHIVED' icon={<CreateNewFolderIcon />} onClick={handleNaoArquivados} />
+
+            <RecadosContentArquiv />
           </>
         )}
         <RecadosContent />

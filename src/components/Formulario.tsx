@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import TextField from '@mui/material/TextField';
 import { Typography } from "@mui/material"
 import { atualizarRecado, criarRecado } from '../store/recados/RecadosSlice';
 import { Recado, RecadoRequest } from '../store/recados/types';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { checkBotoes } from '../store/botoes/BotoesSlice';
+import ButtonStyled from './ButtonStyled/ButtonStyled';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 
 
@@ -69,7 +72,7 @@ const Formulario: React.FC<{ id?: number }> = ({ id }) => {
   return (
     <Box component="form" sx={{
       width: '30%', height: "350px", backgroundColor: 'white', display: 'flex', justifyContent: 'space-around',
-      alignItems: 'center', flexDirection: 'column', marginTop: '25px', borderRadius: '15px', padding: "20px"
+      alignItems: 'center', flexDirection: 'column', marginTop: '25px', borderRadius: '15px', padding: "20px", marginBottom: "15px"
     }}>
 
       <Typography variant='h4' sx={{ fontFamily: '"Josefin Sas", sans-serif' }}>
@@ -84,15 +87,15 @@ const Formulario: React.FC<{ id?: number }> = ({ id }) => {
 
         {
           isCreate ? (<Grid item xs={6} md={6} xl={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: "5px" }}>
-            <Button onClick={handleSalvar} variant='contained'>TO SAVE</Button>
+            <ButtonStyled icon={<SaveAltIcon />} texto={"TO SAVE"} onClick={handleSalvar} />
           </Grid>)
             : (<Grid item xs={6} md={6} xl={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: "5px" }}>
-              <Button onClick={handleAtualizar} variant='contained'>UPDATE</Button>
+              <ButtonStyled icon={<SaveAltIcon />} texto={"UPDATE"} onClick={handleAtualizar} />
             </Grid>)
         }
 
         <Grid item xs={6} md={6} xl={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: "5px" }}>
-          <Button onClick={handleCancelFormulario} variant="contained">CANCEL</Button>
+          <ButtonStyled icon={<CancelIcon />} texto={"CANCEL"} onClick={handleCancelFormulario} />
         </Grid>
 
       </Grid>
